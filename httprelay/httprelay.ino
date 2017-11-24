@@ -9,6 +9,7 @@ void setup(void) {
   Serial.begin(115200);
   Serial.println("");
   pinMode(boilPin, OUTPUT);      // sets the digital pin as output
+      WiFi.mode(WIFI_STA);
 
   WiFi.begin(ssid, pass);
    //Wait for connection
