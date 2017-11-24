@@ -58,5 +58,14 @@ Serial.println("HTTP server started");
 }
 
 void loop(void) {
+  //new if statement to hopefully fix the disconnect issues
+  if (WiFi.status() != WL_CONNECTED){
+    WiFi.begin(ssid,pass);
+    Serial.print("r");
+    while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print("e");
+  }
+  }
   server.handleClient();
 }
