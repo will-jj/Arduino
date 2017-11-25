@@ -9,15 +9,16 @@ void setup(void) {
   Serial.begin(115200);
   Serial.println("");
   pinMode(boilPin, OUTPUT);      // sets the digital pin as output
-      WiFi.mode(WIFI_STA);
+  digitalWrite(boilPin, HIGH);
+
+  WiFi.mode(WIFI_STA);
 
   WiFi.begin(ssid, pass);
-   //Wait for connection
+  //Wait for connection
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-  digitalWrite(boilPin, HIGH);
 
   Serial.println("");
   Serial.print("Connected to ");
@@ -26,35 +27,31 @@ void setup(void) {
   Serial.println(WiFi.localIP());
 
   server.on("/", []() {
-    server.send(200, "text/plain", "Open /servo?value=90 to control servo");
+    server.send(200, "text/plain", "Open /servo?value=1 to control boiler");
   });
 
-  server.on("/temp", []() {
-    String p1 = "{ \"device\": { \"status\": { \"temperature\": " + String(random(20, 25)) + "}}}";
-    server.send(200, "text/plain", p1);
-  });
 
   server.on("/servo", []() {
     String sval = server.arg("value");
     int ival = sval.toInt();
     Serial.print("Servo: ");
     Serial.println(ival);
-    if (ival==1) 
+    if (ival == 1)
     {
       digitalWrite(boilPin, LOW); //active low also
-      digitalWrite(LED_BUILTIN, LOW); //led active low 
+      digitalWrite(LED_BUILTIN, LOW); //led active low
     }
     else {
       digitalWrite(boilPin, HIGH); //active low also
-       digitalWrite(LED_BUILTIN, HIGH); //led active low  
+      digitalWrite(LED_BUILTIN, HIGH); //led active low
     }
-  
-  server.send(200, "text/plain", String(ival, DEC));
-  
-});
 
-server.begin();
-Serial.println("HTTP server started");
+    server.send(200, "text/plain", String(ival, DEC));
+
+  });
+
+  server.begin();
+  Serial.println("HTTP server started");
 
 }
 
