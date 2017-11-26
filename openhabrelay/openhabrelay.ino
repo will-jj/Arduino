@@ -50,8 +50,10 @@ void setup(void) {
 
 void loop(void) {
   delay(5000);
-  getFromOpenHab();
+
   if (WiFi.status() == WL_CONNECTED) {
+    getFromOpenHab();
+
     if (response == "ON") {
       digitalWrite(boilPin, LOW); //active low also
       sendToOpenHab("ON");
@@ -66,17 +68,22 @@ void loop(void) {
     else {
       retry = retry + 1;
     }
+
+    if (retry > 5) {
+      digitalWrite(boilPin, HIGH); //active low also
+      sendToOpenHab("OFF");
+    }
+
+
   }
+  
   else {
     digitalWrite(boilPin, HIGH); //active low also
-    sendToOpenHab("OFF");
+
 
   }
 
-  if (retry > 5) {
-    digitalWrite(boilPin, HIGH); //active low also
-    sendToOpenHab("OFF");
-  }
+
 
 
 
