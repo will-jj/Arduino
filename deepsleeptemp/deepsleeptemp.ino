@@ -54,7 +54,7 @@ void setup(void) {
 
   sendToOpenHab(String(hdc1080.readTemperature()));
   sendToOpenHabH(String(hdc1080.readHumidity()));
-
+  digitalWrite(sensVDD, LOW); // turn off sensor super low power achieved?
   ESP.deepSleep(3e8); // 3e8 is 5 min D0-RST (for wake)
 
 
