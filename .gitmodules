@@ -1,0 +1,6 @@
+[submodule "libraries/openhab-rest-esp8266"]
+	path = libraries/openhab-rest-esp8266
+	url = git@github.com:will-jj/openhab-rest-esp8266.git
+[submodule "libraries/ClosedCube_HDC1080_Arduino"]
+	path = libraries/ClosedCube_HDC1080_Arduino
+	url = git@github.com:will-jj/ClosedCube_HDC1080_Arduino.git
