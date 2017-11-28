@@ -2,6 +2,8 @@
 // SwitchDoc Labs  October 2015 has been incorperated into this file
 // Openhab rest example also incorperated https://github.com/Br3nda/openhab-rest-esp8266 
 
+// See read me for integration
+
 #include <ESP8266WiFi.h>
 
 #include  "Openhab.h"
