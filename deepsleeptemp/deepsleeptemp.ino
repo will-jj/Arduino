@@ -1,3 +1,7 @@
+// For use with OpenHAB include the following in the items file of your choosing:
+// Number   Inside_Temp  "Room Temp [%.2f °C]" 
+// Number   Inside_Humid  "Room Humid [%.2f %%]" 
+
 #include <ESP8266WiFi.h>
 #include <Wire.h>
 #include "ClosedCube_HDC1080.h"
@@ -10,18 +14,18 @@ const int port = 8080;
 
 static const uint8_t sensVDD   = 14; //D5
 
-String item_name = "Second_Temp";
-String item_hum = "Second_Hum";
+String item_name = "Inside_Temp";
+String item_hum = "Inside_Humid";
 
-Openhab steve = Openhab(host, port);
+Openhab hab = Openhab(host, port);
 
 void sendToOpenHab(String value) {
-  String response = steve.put(item_name, value);
+  String response = hab.put(item_name, value);
   Serial.print(response);
 }
 
 void sendToOpenHabH(String value) {
-  String response = steve.put(item_hum, value);
+  String response = hab.put(item_hum, value);
   Serial.print(response);
 }
 
