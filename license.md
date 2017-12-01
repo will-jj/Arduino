@@ -1,5 +1,7 @@
 # DON'T BE A DICK PUBLIC LICENSE
 
+> Submodules within this repository maintain the license originally associated with them.
+
 > Version 1.1, December 2016
 
 > Copyright (C) [2017] [William Jackson]
@@ -12,7 +14,7 @@ copies of this license document.
 
 1. Do whatever you like with the original work, just don't be a dick.
 
-   Being a dick includes - but is not limited to - the following instances:
+ Being a dick includes - but is not limited to - the following instances:
 
  1a. Outright copyright infringement - Don't just copy this and change the name.
  1b. Selling the unmodified original with no work done what-so-ever, that's REALLY being a dick.
@@ -25,4 +27,3 @@ creator(s) a pint.
 3. Code is provided with no warranty. Using somebody else's code and bitching when it goes wrong makes
 you a DONKEY dick. Fix the problem yourself. A non-dick would submit the fix back.
 
-4. Submodules within this repository maintain the license originally associated with them.
