@@ -50,14 +50,6 @@ void setup(void){
 }
  
 void loop(void){
-  if (i == 1){
-  HTTPClient http;
-  http.begin("http://192.168.1.70:8080/rest/items/Second_Temp");
-  http.addHeader("Content-Type: text/plain", "Accept: application/json");
-  http.POST("15.5");
-  http.writeToStream(&Serial);
-  http.end();}
-  
-  i = 10;
-  //server.handleClient();
+
+  server.handleClient();
 } 
